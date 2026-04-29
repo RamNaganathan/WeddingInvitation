@@ -120,7 +120,7 @@ export default function IntroPage({ onBegin }) {
           animation: 'magentaShimmer 3s linear infinite',
           marginTop: '0.25rem',
         }}>Hemalatha &amp; Ram</p>
-        <p style={{ fontFamily: "'Lato', sans-serif", fontSize: '0.68rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--text-light)' }}>
+        <p style={{ fontFamily: "'Lato', sans-serif", fontSize: '0.5rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--text-light)' }}>
           Wedding Invitation · June 3 &amp; 4, 2026
         </p>
       </div>
