@@ -122,7 +122,7 @@ export default function LandingPage({ onEnter }) {
           className="font-cormorant tracking-[0.25em] font-bold"
           style={{ fontSize: 'clamp(1.2rem, 3vw, 1.5rem)', color: 'var(--magenta-dark)' }}
         >
-          June 4 &nbsp;·&nbsp; 2026
+          June 3 &amp; 4  &nbsp;·&nbsp;  2026
         </p>
       </div>
 

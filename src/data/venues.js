@@ -15,7 +15,7 @@ export const venues = {
         time: '7:00 PM – 10:30 PM',
       },
       {
-        name: 'Wedding',
+        name: 'Muhurtam',
         icon: 'wedding',
         badge: 'Wedding Ceremony',
         accent: 'gold',

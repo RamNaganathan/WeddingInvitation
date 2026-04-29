@@ -111,7 +111,7 @@ export default function IntroPage({ onBegin }) {
         <div style={{ fontSize: '3rem', color: 'var(--magenta-mid)', lineHeight: 1 }}>ॐ</div>
         <p style={{
           fontFamily: "'Great Vibes', cursive",
-          fontSize: 'clamp(2.2rem, 7vw, 3.5rem)',
+          fontSize: 'clamp(5rem, 7vw, 5rem)',
           background: 'linear-gradient(135deg, var(--magenta-dark), var(--magenta-mid), var(--magenta-lightest), var(--magenta-mid), var(--magenta-dark))',
           backgroundSize: '200% auto',
           WebkitBackgroundClip: 'text',
@@ -120,8 +120,8 @@ export default function IntroPage({ onBegin }) {
           animation: 'magentaShimmer 3s linear infinite',
           marginTop: '0.25rem',
         }}>Hemalatha &amp; Ram</p>
-        <p style={{ fontFamily: "'Lato', sans-serif", fontSize: '0.68rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--text-light)' }}>
-          Wedding Invitation · June 4, 2026
+        <p style={{ fontFamily: "'Lato', sans-serif", fontSize: '0.90rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--text-light)' }}>
+          Wedding Invitation · June 3 &amp; 4, 2026
         </p>
       </div>
 
