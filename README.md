@@ -1,4 +1,4 @@
-# 💍 Hemalatha & Ram — Wedding Invitation
+# 💍 Ram & Hemalatha — Wedding Invitation
 
 An interactive, South-Indian themed wedding invitation web app built with **React + Vite** and styled with **Tailwind CSS**.
 
@@ -120,3 +120,17 @@ https://<your-username>.github.io/<your-repo>/
 | Styling | Tailwind CSS 3 |
 | Fonts | Google Fonts (Cormorant Garamond, Great Vibes, Lato) |
 | Deployment | GitHub Pages via `gh-pages` |
+
+---
+
+## Visitor Count (App Opens)
+
+This app increments a counter once per browser session in production.
+
+To view the current total opens, open:
+
+`https://api.counterapi.dev/v1/ramnaganathan-weddinginvitation/app-opens`
+
+Notes:
+- This counts opens, not exact unique people.
+- A user opening in a new session/browser can increment again.

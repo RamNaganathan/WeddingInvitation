@@ -9,6 +9,9 @@ import bgMusic from './assets/until_i_found_you.ogg'
 import elephantCorner from './assets/corner-elephant.png'
 import flowerCorner from './assets/corner-flowers.png'
 
+const VISITOR_COUNTER_URL = 'https://api.counterapi.dev/v1/ramnaganathan-weddinginvitation/app-opens/up'
+const VISITOR_SESSION_KEY = 'weddinginvitation_open_counted'
+
 
 
 function Decorations({ isZooming }) {
@@ -73,6 +76,41 @@ export default function App() {
       img.onload = checkAllLoaded
       img.onerror = checkAllLoaded
     })
+  }, [])
+
+  useEffect(() => {
+    // Count one open per browser session in production deployments.
+    if (!import.meta.env.PROD) return
+    if (sessionStorage.getItem(VISITOR_SESSION_KEY) === '1') return
+
+    fetch(VISITOR_COUNTER_URL, { method: 'GET', cache: 'no-store' })
+      .then(() => {
+        sessionStorage.setItem(VISITOR_SESSION_KEY, '1')
+      })
+      .catch(() => {})
+  }, [])
+
+  useEffect(() => {
+    // Pause audio when switching tabs or closing browser
+    const handleVisibilityChange = () => {
+      if (document.hidden && audioRef.current) {
+        audioRef.current.pause()
+      }
+    }
+
+    const handleBeforeUnload = () => {
+      if (audioRef.current) {
+        audioRef.current.pause()
+      }
+    }
+
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+    window.addEventListener('beforeunload', handleBeforeUnload)
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
+      window.removeEventListener('beforeunload', handleBeforeUnload)
+    }
   }, [])
 
   const handleBegin = ({ muted: startMuted }) => {

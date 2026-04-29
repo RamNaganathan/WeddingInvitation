@@ -1,11 +1,32 @@
+import { useEffect, useState } from 'react'
 import { venues } from '../data/venues'
 import EventCard from './EventCard'
 import { IoArrowBack, IoChevronDown } from 'react-icons/io5'
 import { MdLocationPin } from 'react-icons/md'
 import { PiStarFourFill } from 'react-icons/pi'
+import closingImage from '../assets/1777446484496.jpg'
 
 export default function VenuePage({ city, onBack }) {
+  const [fullscreenImage, setFullscreenImage] = useState(null)
   const data = venues[city]
+  const closingImages = [closingImage]
+
+  useEffect(() => {
+    if (!fullscreenImage) return undefined
+
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') setFullscreenImage(null)
+    }
+
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', onKeyDown)
+
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [fullscreenImage])
+
   if (!data) return null
 
   return (
@@ -94,8 +115,60 @@ export default function VenuePage({ city, onBack }) {
         ))}
       </div>
 
+      {/* Closing image */}
+      <div
+        className="w-full max-w-5xl mt-16 relative z-[2] mx-auto grid gap-6"
+        style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}
+      >
+        {closingImages.map((imgSrc, idx) => (
+          <button
+            key={`closing-image-${idx}`}
+            type="button"
+            onClick={() => setFullscreenImage(imgSrc)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') setFullscreenImage(imgSrc)
+            }}
+            aria-label={`Open image ${idx + 1} in full screen`}
+            className="w-full text-left cursor-zoom-in group"
+          >
+            <div
+              className="rounded-2xl overflow-hidden relative"
+              style={{
+                border: '1px solid rgba(158, 16, 69, 0.18)',
+                boxShadow: '0 6px 24px rgba(0, 0, 0, 0.12)',
+                background: 'rgba(255, 255, 255, 0.35)',
+                height: 'clamp(220px, 30vw, 300px)',
+              }}
+            >
+              <img
+                src={imgSrc}
+                alt={`Wedding ${idx + 1}`}
+                className="w-full h-full object-contain block transition-[transform,filter] duration-500 ease-out blur-[1.8px] group-hover:blur-0 group-hover:scale-[1.02]"
+                loading="lazy"
+              />
+              <div
+                className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{
+                  background: 'linear-gradient(to top, rgba(0,0,0,0.18), rgba(0,0,0,0) 45%)',
+                }}
+              />
+              <span
+                className="absolute bottom-3 right-3 px-2.5 py-1 rounded-full text-[0.68rem] tracking-[0.08em] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{
+                  background: 'rgba(255,255,255,0.82)',
+                  color: 'var(--text-dark)',
+                  border: '1px solid rgba(0,0,0,0.12)',
+                }}
+              >
+                Tap to expand
+              </span>
+            </div>
+          </button>
+        ))}
+      </div>
+
       {/* Closing Invitation */}
-      <div className="w-full max-w-5xl mt-16 relative z-[2] flex flex-col items-center">
+      <div className="w-full max-w-5xl mt-10 relative z-[2] flex flex-col items-center">
         <div className="section-divider">
           <PiStarFourFill style={{ color: 'var(--magenta-mid)', fontSize: '1rem' }} />
         </div>
@@ -127,6 +200,30 @@ export default function VenuePage({ city, onBack }) {
 
       {/* Scroll hint */}
       <div className="scroll-hint flex items-center gap-1.5">Scroll to explore <IoChevronDown /></div>
+
+      {fullscreenImage && (
+        <div
+          className="fixed inset-0 z-[120] flex items-center justify-center p-4"
+          onClick={() => setFullscreenImage(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Full screen image preview"
+          style={{
+            animation: 'fadeIn 0.22s ease both',
+            background: 'rgba(255, 244, 238, 0.35)',
+            WebkitBackdropFilter: 'blur(10px)',
+            backdropFilter: 'blur(10px)',
+          }}
+        >
+          <img
+            src={fullscreenImage}
+            alt="Wedding full screen"
+            className="max-w-full max-h-full w-auto h-auto object-contain"
+            onClick={(e) => e.stopPropagation()}
+            style={{ animation: 'fadeInUp 0.3s ease both' }}
+          />
+        </div>
+      )}
     </section>
   )
 }

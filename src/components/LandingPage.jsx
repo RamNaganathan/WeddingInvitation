@@ -88,7 +88,7 @@ export default function LandingPage({ onEnter }) {
             className="bride-name magenta-text px-2 pt-4"
             style={{ animation: 'magentaShimmer 3s linear infinite, fadeInUp 1.6s ease both' }}
           >
-            Hemalatha
+            Ram
           </div>
           <span className="ampersand ampersand-text">
             &amp;
@@ -97,7 +97,7 @@ export default function LandingPage({ onEnter }) {
             className="groom-name magenta-text px-2 pt-2"
             style={{ animation: 'magentaShimmer 3s linear infinite, fadeInUp 1.6s ease both', animationDelay: '0.15s' }}
           >
-            Ram
+            Hemalatha
           </div>
         </div>
 

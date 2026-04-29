@@ -12,7 +12,7 @@ export const venues = {
         accent: 'green',
         desc: 'A grand celebration  for the extended family and friends.',
         date: 'Wednesday, 3rd June 2026',
-        time: '7:00 PM – 10:30 PM',
+        time: '7:00 PM onwards',
       },
       {
         name: 'Muhurtam',
@@ -21,7 +21,7 @@ export const venues = {
         accent: 'gold',
         desc: 'Sacred wedding rituals performed with traditional customs.',
         date: 'Thursday, 4th June 2026',
-        time: '7:30 PM – 9:30 PM',
+        time: '7:30 AM – 9:00 AM',
       },
     ],
   },

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import ganeshSymbol from '../assets/clipart2630858.png'
 
 const toggleStyle = {
   background: '#fed5cc87',
@@ -108,7 +109,11 @@ export default function IntroPage({ onBegin }) {
 
       {/* Branding */}
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', position: 'relative', zIndex: 1 }}>
-        <div style={{ fontSize: '3rem', color: 'var(--magenta-mid)', lineHeight: 1 }}>ॐ</div>
+        <img
+          src={ganeshSymbol}
+          alt="Ganesh symbol"
+          style={{ width: 'clamp(42px, 8vw, 64px)', height: 'auto', display: 'block' }}
+        />
         <p style={{
           fontFamily: "'Great Vibes', cursive",
           fontSize: 'clamp(2.2rem, 7vw, 3.5rem)',
@@ -119,7 +124,7 @@ export default function IntroPage({ onBegin }) {
           WebkitTextFillColor: 'transparent',
           animation: 'magentaShimmer 3s linear infinite',
           marginTop: '0.25rem',
-        }}>Hemalatha &amp; Ram</p>
+        }}>Ram &amp; Hemalatha</p>
             <p style={{ fontFamily: "'Lato', sans-serif", fontSize: 'clamp(0.72rem, 2.6vw, 0.90rem)', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--text-light)', whiteSpace: 'nowrap' }}>
           Wedding Invitation · June 3 &amp; 4, 2026
         </p>
