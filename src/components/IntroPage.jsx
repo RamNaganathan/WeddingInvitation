@@ -111,7 +111,7 @@ export default function IntroPage({ onBegin }) {
         <div style={{ fontSize: '3rem', color: 'var(--magenta-mid)', lineHeight: 1 }}>ॐ</div>
         <p style={{
           fontFamily: "'Great Vibes', cursive",
-          fontSize: 'clamp(5rem, 7vw, 5rem)',
+          fontSize: 'clamp(2.2rem, 7vw, 3.5rem)',
           background: 'linear-gradient(135deg, var(--magenta-dark), var(--magenta-mid), var(--magenta-lightest), var(--magenta-mid), var(--magenta-dark))',
           backgroundSize: '200% auto',
           WebkitBackgroundClip: 'text',
