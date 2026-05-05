@@ -193,7 +193,7 @@ export default function VenuePage({ city, onBack }) {
               animation: 'fadeInUp 0.8s ease both',
             }}
           >
-            We humbly request your presence and blessing as we embark on this sacred journey of togetherness.
+            We request your presence and blessing as we embark on this sacred journey of togetherness.
           </p>
         </div>
       </div>
